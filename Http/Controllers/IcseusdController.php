@@ -128,7 +128,7 @@ class IcseusdController extends Controller
         if (is_null($request)) {
             $request = new Request();
         }
-        $a = $request->all();
+
         foreach ($this->filters as $k => $v) {
             $this->filters[$k] = request()->input("filters.{$k}", '') ?? '';
         }
