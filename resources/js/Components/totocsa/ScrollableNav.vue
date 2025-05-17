@@ -45,11 +45,13 @@ const checkScroll = () => {
     canScrollRight.value = el.scrollLeft + el.clientWidth < el.scrollWidth - 1
 }
 
-const scrollLeft = () => {
+const scrollLeft = (event) => {
+    event.preventDefault()
     scrollContainer.value.scrollBy({ left: -200, behavior: 'smooth' })
 }
 
-const scrollRight = () => {
+const scrollRight = (event) => {
+    event.preventDefault()
     scrollContainer.value.scrollBy({ left: 200, behavior: 'smooth' })
 }
 

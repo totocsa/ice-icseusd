@@ -465,7 +465,7 @@ class IcseusdController extends Controller
             }
 
             $attributes[$tableField[0]]['className'] = $className;
-            $attributes[$tableField[0]]['attrs'][$tableField[1]] = isset($data[$v]) ? $data[$v] : $item[$v];
+            $attributes[$tableField[0]]['attrs'][$tableField[1]] = key_exists($v, $data) ? $data[$v] : $item[$v];
         }
 
         return $attributes;
@@ -479,7 +479,7 @@ class IcseusdController extends Controller
         }
     }
 
-    public function formValidation($attributes)
+    public function formValidation(&$attributes)
     {
         $errors = [];
         $allValid = true;
@@ -489,9 +489,13 @@ class IcseusdController extends Controller
                 if (array_search("$k1-$k2", $this->doNotSaveOnUpdate) !== false) {
                     unset($rules[$k2]);
                 }
+
+                if (key_exists($k2, $v1['attrs']) && is_null($v1['attrs'][$k2]) && array_search('string', $v2) !== false) {
+                    $attributes[$k1]['attrs'][$k2] = (string) $attributes[$k1]['attrs'][$k2];
+                }
             }
 
-            $validator = Validator::make($v1['attrs'], $rules);
+            $validator = Validator::make($attributes[$k1]['attrs'], $rules);
 
             $allValid = $allValid && $validator->passes('translatable');
 

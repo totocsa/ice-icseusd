@@ -90,7 +90,6 @@ return [
         ];
     },
     'indexQuery' => function ($caller): LengthAwarePaginator {
-        /* @var $query \App\Models\XModel */
         $t0 = 'users';
 
         $query = $caller->modelClassName::query()

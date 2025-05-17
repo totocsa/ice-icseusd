@@ -1,8 +1,6 @@
 <script setup>
 import { useFilters } from "./js/useFilters.js";
-import icseusdInput from './Controls/Input.vue';
-import icseusdSelect from './Controls/Select.vue';
-import icseusdTextarea from './Controls/Textarea.vue';
+import IcseusdControl from './Controls/IcseusdControl.vue';
 import LocalTranslation from "@/Components/totocsa/LocalTranslation/LocalTranslation.vue";
 
 const props = defineProps({
@@ -14,13 +12,12 @@ const props = defineProps({
 
 const prefix = 'form'
 const { modelIdName } = useFilters()
-const getOptionsList = (source) => source.reduce((acc, key) => acc?.[key], props);
 
 const fieldError = (field) => props.config?.errors?.[field]?.[0] ?? false
 </script>
 
 <template>
-    <form @submit.prevent="formSubmit" class="table m-auto w-auto text-left rounded-2xl">
+    <form @submit.prevent="formSubmit" class="table mx-auto w-auto text-left rounded-2xl">
         <template v-for="i in props.config.orders.item.fields">
             <div class="mb-4">
                 <div>
@@ -31,16 +28,10 @@ const fieldError = (field) => props.config?.errors?.[field]?.[0] ?? false
                     </div>
 
                     <div>
-                        <icseusdInput v-if="props.config.fields[i].form.tag.toLowerCase() === 'input'"
-                            :modelIdName="modelIdName" :prefix="prefix" :formData="form" :field="i"
-                            :type="props.config.fields[i].form.attributes.type" />
-
-                        <icseusdSelect v-if="props.config.fields[i].form.tag.toLowerCase() === 'select'"
-                            :modelIdName="modelIdName" :prefix="prefix" :formData="form" :field="i"
-                            :items="getOptionsList(props.config.fields[i].form.options)" />
-
-                        <icseusdTextarea v-if="props.config.fields[i].form.tag.toLowerCase() === 'textarea'"
-                            :modelIdName="modelIdName" :prefix="prefix" :formData="form" :field="i" />
+                        <IcseusdControl :tagName="props.config.fields[i].form.tag" :modelIdName="modelIdName"
+                            :prefix="prefix" :formData="form" :field="i"
+                            :type="props.config.fields[i].form.attributes.type"
+                            :options="props.config.fields[i].form.options" />
                     </div>
                 </div>
 
