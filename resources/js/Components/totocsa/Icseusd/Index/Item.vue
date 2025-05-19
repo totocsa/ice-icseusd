@@ -2,6 +2,7 @@
 import { Link } from '@inertiajs/vue3'
 import { t } from "@/Components/totocsa/LocalTranslation/translation.js"
 import IconAsync from '@/Components/bealejd/blog-async-icons/src/components/Icons/IconAsync.vue'
+import IcseusdControl from '@/Components/totocsa/Icseusd/Controls/IcseusdControl.vue'
 import LocalTranslation from "@/Components/totocsa/LocalTranslation/LocalTranslation.vue"
 
 const props = defineProps({
@@ -24,9 +25,18 @@ const props = defineProps({
     itemCursor: { type: String, default: '' },
 })
 
-const emit = defineEmits(['item-click', 'item-button-click'])
+const itemFields = {}
+for (let i of props.orders.item.fields) {
+    if (props.fields.item[i] === undefined) {
+        itemFields[i] = {
+            tagName: 'ITEM_TEXT',
+        }
+    } else {
+        itemFields[i] = props.fields.item[i]
+    }
+}
 
-const fieldError = (id, field) => props.getEditableResult(id, field)
+const emit = defineEmits(['item-click', 'item-button-click'])
 
 const setHref = (url, item) => {
     let href, key
@@ -67,7 +77,7 @@ const showIf = (condition, context) => {
                     <LocalTranslation :category="props.modelClassName" :subtitle="i1" />
                 </div>
 
-                <div
+                <!--<div
                     v-if="props.fields[i1]?.editableOnIndex && route().has(`${props.routePrefix}${props.routeController}.saveEditable`)">
                     <div @click="editableStart($event, { 'id': item.id, 'field': i1 })" :title="item[i1]"
                         :class="['border-[1px] cursor-pointer pl-1 pr-1 overflow-x-hidden text-ellipsis whitespace-nowrap',
@@ -86,9 +96,14 @@ const showIf = (condition, context) => {
                     </div>
                 </div>
 
+                <div v-if="false"></div>
                 <div v-else :title="item[i1]" class="overflow-x-hidden text-ellipsis whitespace-nowrap">
                     {{ item[i1] > '' ? item[i1] : '&nbsp;' }}
                 </div>
+-->
+                <IcseusdControl :itemField="itemFields[i1]" :clickHandler="editableStart"
+                    :getEditableResult="props.getEditableResult" :item="item" :field="i1"
+                    :route="`${props.routePrefix}${props.routeController}.saveEditable`" />
             </div>
         </div>
 

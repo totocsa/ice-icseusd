@@ -1,8 +1,6 @@
 <script setup>
 import { useFilters } from "../js/useFilters.js";
-import IcseusdInput from '../Controls/Input.vue';
-import IcseusdSelect from '../Controls/Select.vue';
-import IcseusdTextarea from '../Controls/Textarea.vue';
+import IcseusdControl from '../Controls/IcseusdControl.vue';
 import LocalTranslation from "@/Components/totocsa/LocalTranslation/LocalTranslation.vue";
 
 const props = defineProps({
@@ -15,16 +13,27 @@ const props = defineProps({
     additionalData: Object,
 })
 
+const itemFields = {}
+for (let i of props.order) {
+    if (props.fields.filter[i] === undefined) {
+        itemFields[i] = {
+            tagName: 'INPUT',
+            attributes: {
+                type: 'text',
+            },
+        }
+    } else {
+        itemFields[i] = props.fields.filter[i]
+    }
+}
+
 const { modelIdName } = useFilters()
 
-const filtersForm = props.filters
 const prefix = 'filter'
 
 const submitForm = () => {
     props.setFilters(props.filtersForm);
 };
-
-const getOptionsList = (source) => source.reduce((acc, key) => acc?.[key], props);
 </script>
 
 <template>
@@ -37,16 +46,8 @@ const getOptionsList = (source) => source.reduce((acc, key) => acc?.[key], props
             </div>
 
             <div class="control">
-                <IcseusdInput v-if="props.fields[i].filter.tag.toLowerCase() === 'input'" :formData="props.filtersForm"
-                    :field="i" :modelIdName="modelIdName" :prefix="prefix"
-                    :type="props.fields[i].filter.attributes.type" />
-
-                <IcseusdSelect v-if="props.fields[i].filter.tag.toLowerCase() === 'select'"
-                    :formData="props.filtersForm" :field="i" :modelIdName="modelIdName" :prefix="prefix"
-                    :items="getOptionsList(props.fields[i].filter.options)" />
-
-                <IcseusdTextarea v-if="props.fields[i].filter.tag.toLowerCase() === 'textarea'"
-                    :formData="props.filtersForm" :field="i" :modelIdName="modelIdName" :prefix="prefix" />
+                <IcseusdControl :itemField="itemFields[i]" :modelIdName="modelIdName" :prefix="prefix"
+                    :formData="props.filtersForm" :item="props.filtersForm" :field="i" />
             </div>
         </div>
 

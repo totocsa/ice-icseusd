@@ -10,6 +10,20 @@ const props = defineProps({
     success: Boolean,
 })
 
+const itemFields = {}
+for (let i of props.config.orders.item.fields) {
+    if (props.config.fields.form[i] === undefined) {
+        itemFields[i] = {
+            tagName: 'INPUT',
+            attributes: {
+                type: 'text',
+            },
+        }
+    } else {
+        itemFields[i] = props.config.fields.form[i]
+    }
+}
+
 const prefix = 'form'
 const { modelIdName } = useFilters()
 
@@ -28,10 +42,8 @@ const fieldError = (field) => props.config?.errors?.[field]?.[0] ?? false
                     </div>
 
                     <div>
-                        <IcseusdControl :tagName="props.config.fields[i].form.tag" :modelIdName="modelIdName"
-                            :prefix="prefix" :formData="form" :field="i"
-                            :type="props.config.fields[i].form.attributes.type"
-                            :options="props.config.fields[i].form.options" />
+                        <IcseusdControl :itemField="itemFields[i]" :modelIdName="modelIdName" :prefix="prefix"
+                            :formData="form" :field="i" />
                     </div>
                 </div>
 

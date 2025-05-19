@@ -1,4 +1,5 @@
 <script setup>
+import "/node_modules/flag-icons/css/flag-icons.min.css"
 import ScrollableNav from '@/Components/totocsa/ScrollableNav.vue';
 
 const props = defineProps({

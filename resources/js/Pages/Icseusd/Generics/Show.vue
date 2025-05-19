@@ -5,11 +5,14 @@ import ActionMenu from '@/Components/totocsa/Icseusd/ActionMenu/ActionMenu.vue';
 import LocalTranslationHeader from '@/Components/totocsa/LocalTranslation/LocalTranslationHeader.vue';
 
 const props = defineProps({
+    userRoles: Object,
+    routePrefix: String,
     routeController: String,
     routeParameterName: String,
     modelClassName: String,
     item: Object,
     orders: Object,
+    fields: Object,
 })
 
 const actionMenuConfig = {
@@ -53,7 +56,7 @@ const titleArray = ['Users', 'Users', 'ActionMenu', 'Show', props.item.id]
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <IcseusdShow :modelClassName="modelClassName" :item="props.item" :orders="props.orders" />
+                    <IcseusdShow :config="props" />
                 </div>
             </div>
         </div>

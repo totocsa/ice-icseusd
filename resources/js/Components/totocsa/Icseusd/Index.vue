@@ -28,7 +28,6 @@ const defaultLinkClass = "bg-gray-50 hover:bg-gray-100 inline-flex items-center 
 const currentLinkClass = defaultLinkClass.replace('text-gray-900', 'text-gray-100')
     .replace('bg-gray-50', 'bg-indigo-600')
     .replace('hover:bg-gray-100', 'hover:bg-indigo-500')
-console.log(props)
 </script>
 
 <template>
