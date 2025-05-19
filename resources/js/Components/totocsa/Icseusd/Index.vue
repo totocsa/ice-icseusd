@@ -1,11 +1,11 @@
 <script setup>
 import { reactive } from "vue"
 import { useIndex } from "./js/useIndex.js";
-import Items from '@/Components/totocsa/Icseusd/Index/Items.vue';
-import Pagination from '@/Components/totocsa/Icseusd/Index/Pagination.vue';
-import PerPage from '@/Components/totocsa/Icseusd/Index/PerPage.vue';
-import Sort from '@/Components/totocsa/Icseusd/Index/Sort.vue';
-import Filters from '@/Components/totocsa/Icseusd/Index/Filters.vue';
+import Items from '@IceIcseusd/Components/totocsa/Icseusd/Index/Items.vue';
+import Pagination from '@IceIcseusd/Components/totocsa/Icseusd/Index/Pagination.vue';
+import PerPage from '@IceIcseusd/Components/totocsa/Icseusd/Index/PerPage.vue';
+import Sort from '@IceIcseusd/Components/totocsa/Icseusd/Index/Sort.vue';
+import Filters from '@IceIcseusd/Components/totocsa/Icseusd/Index/Filters.vue';
 
 const props = defineProps({
     config: Object,

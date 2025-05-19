@@ -2,7 +2,7 @@
 import { Link } from '@inertiajs/vue3'
 import { t } from "@/Components/totocsa/LocalTranslation/translation.js"
 import IconAsync from '@/Components/bealejd/blog-async-icons/src/components/Icons/IconAsync.vue'
-import IcseusdControl from '@/Components/totocsa/Icseusd/Controls/IcseusdControl.vue'
+import IcseusdControl from '@IceIcseusd/Components/totocsa/Icseusd/Controls/IcseusdControl.vue'
 import LocalTranslation from "@/Components/totocsa/LocalTranslation/LocalTranslation.vue"
 
 const props = defineProps({

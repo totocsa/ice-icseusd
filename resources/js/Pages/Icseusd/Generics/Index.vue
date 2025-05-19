@@ -1,5 +1,5 @@
 <script setup>
-import IcseusdIndex from '@/Components/totocsa/Icseusd/Index.vue';
+import IcseusdIndex from '@IceIcseusd/Components/totocsa/Icseusd/Index.vue';
 
 const props = defineProps({
     configName: String,

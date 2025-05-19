@@ -421,6 +421,7 @@ class IcseusdController extends Controller
         $this->vueComponents = [];
         foreach ($routes as $k => $v) {
             $this->vueComponents[$k] = "$prefix/" . ucfirst(strtolower($k));
+            // $this->vueComponents[$k] = "../../../vendor/totocsa/ice-users-gui/resources/js/Pages/$prefix/" . ucfirst(strtolower($k));
         }
     }
 

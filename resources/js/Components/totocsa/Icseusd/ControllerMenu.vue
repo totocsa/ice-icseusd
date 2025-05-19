@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { usePage } from '@inertiajs/vue3'
 import Dropdown from '@/Components/Dropdown.vue'
 import DropdownLink from '@/Components/DropdownLink.vue'
-import ScrollableNav from '@/Components/totocsa/ScrollableNav.vue'
+import ScrollableNav from '@IceIcseusd/Components/totocsa/ScrollableNav.vue'
 import LocalTranslation from '@/Components/totocsa/LocalTranslation/LocalTranslation.vue'
 
 const props = defineProps({
