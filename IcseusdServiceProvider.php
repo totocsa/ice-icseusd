@@ -15,8 +15,7 @@ class IcseusdServiceProvider extends ServiceProvider
     public function boot()
     {
         // Publikálható migrációk
-        $this->publishes([
-            __DIR__ . '/resources' => resource_path(),
-        ], 'ice-icseusd');
+        $groupsBase = 'ice-icseusd';
+        $this->publishes([__DIR__ . '/resources' =>  resource_path()], "$groupsBase-resources");
     }
 }
