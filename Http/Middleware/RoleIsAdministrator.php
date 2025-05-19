@@ -12,7 +12,7 @@ class RoleIsAdministrator
     {
         if (!$request->user() || !$request->user()->hasRole('Administrator')) {
             //abort(403, 'Access denied');
-            return redirect()->route('/');
+            return redirect()->route('appRoot');
         }
 
         return $next($request);

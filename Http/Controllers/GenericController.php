@@ -43,7 +43,8 @@ class GenericController extends IcseusdController
     public function loadConfig()
     {
         try {
-            $this->config = GenericConfigLoader::get($this->configName); // pl. config/icseusd_generic_configs/User.php vagy csomagból
+            // pl. config/icseusd_generic_configs/User.php vagy csomagból
+            $this->config = GenericConfigLoader::get($this->configName);
         } catch (\Exception $e) {
             abort(404, $e->getMessage());
             return null;

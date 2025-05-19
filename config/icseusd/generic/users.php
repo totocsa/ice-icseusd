@@ -22,11 +22,15 @@ return [
             'itemButtons' => [],
         ],
         'form' => [
-            'fields' => ['users-name', 'users-email'],
+            'item' => [
+                'fields' => ['users-name', 'users-email'],
+            ],
         ],
         'show' => [
-            'fields' => ['users-name', 'users-email'],
-        ]
+            'item' => [
+                'fields' => ['users-name', 'users-email'],
+            ],
+        ],
     ],
     'filters' => [
         'users-name' => '',
@@ -46,47 +50,46 @@ return [
     ],
     'fields' => function () {
         return [
-            'users-name' => [
-                'editableOnIndex' => true,
-                'form' => [
-                    'tag' => 'input',
+            'filter' => [
+                'users-name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
-                'filter' => [
-                    'tag' => 'input',
+                'users-email' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
+                ],
+                'current_team_id' => [
+                    'tagName' => 'select',
+                    'options' => ['additionalData', 'current_team_idValueTexts'],
+                    'attributes' => [],
                 ],
             ],
-            'users-email' => [
-                'form' => [
-                    'tag' => 'input',
+            'item' => [],
+            'form' => [
+                'users-name' => [
+                    'tagName' => 'input',
+                    'attributes' => [
+                        'type' => 'text',
+                    ],
+                ],
+                'users-email' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'email',
                     ],
                 ],
-                'filter' => [
-                    'tag' => 'input',
-                    'attributes' => [
-                        'type' => 'text',
-                    ],
-                ],
-            ],
-            'current_team_id' => [
-                'form' => [
-                    'tag' => 'select',
-                    'options' => ['additionalData', 'current_team_idValueTexts'],
-                    'attributes' => [],
-                ],
-                'filter' => [
-                    'tag' => 'select',
+                'current_team_id' => [
+                    'tagName' => 'select',
                     'options' => ['additionalData', 'current_team_idValueTexts'],
                     'attributes' => [],
                 ],
             ],
+            'show' => [],
         ];
     },
     'indexQuery' => function ($caller): LengthAwarePaginator {

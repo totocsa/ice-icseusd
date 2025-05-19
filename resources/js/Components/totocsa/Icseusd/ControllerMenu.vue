@@ -19,7 +19,7 @@ const groups = computed(() => {
         {
             name: 'default',
             subtitle: 'Default',
-            href: route('/'),
+            href: route('appRoot'),
         },
     ]
 

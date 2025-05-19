@@ -239,9 +239,10 @@ class IcseusdController extends Controller
 
         $modelClassName = $this->modelClassName;
         $orders = $this->orders['show'];
+        $fields = $this->fields();
         $additionalData = $this->additionalShowData();
 
-        $params = array_merge($this->commonParams(), compact('modelClassName', 'item', 'orders', 'additionalData'));
+        $params = array_merge($this->commonParams(), compact('modelClassName', 'item', 'orders', 'fields', 'additionalData'));
         return Inertia::render($this->vueComponents['show'], $params);
     }
 
@@ -376,7 +377,12 @@ class IcseusdController extends Controller
 
     public function fields()
     {
-        return [];
+        return [
+            'filter' => [],
+            'item' => [],
+            'form' => [],
+            'show' => [],
+        ];
     }
 
     public function fixValues(): array
