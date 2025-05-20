@@ -1,6 +1,6 @@
 <script setup>
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/vue/20/solid'
-import LocalTranslation from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/LocalTranslation.vue";
+import LocalTranslation from "@IceDatabaseTranslationLocally/Components/LocalTranslation/LocalTranslation.vue";
 
 const props = defineProps({
     modelClassName: String,

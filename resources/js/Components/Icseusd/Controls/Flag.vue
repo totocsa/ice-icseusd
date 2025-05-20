@@ -1,6 +1,6 @@
 <script setup>
 import "/node_modules/flag-icons/css/flag-icons.min.css"
-import ScrollableNav from '@IceIcseusd/Components/totocsa/ScrollableNav.vue';
+import ScrollableNav from '@IceIcseusd/Components/ScrollableNav.vue';
 
 const props = defineProps({
     modelIdName: Function,

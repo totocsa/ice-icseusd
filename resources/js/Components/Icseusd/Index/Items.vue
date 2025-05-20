@@ -2,8 +2,8 @@
 import { ref } from "vue"
 import { useIndex } from "../js/useIndex.js"
 import { useDestroyItemForm } from "../js/useDestroyItemForm.js"
-import Item from '@IceIcseusd/Components/totocsa/Icseusd/Index/Item.vue'
-import EditableText from "@IceIcseusd/Components/totocsa/Icseusd/Controls/EditableText.vue"
+import Item from '@IceIcseusd/Components/Icseusd/Index/Item.vue'
+import EditableText from "@IceIcseusd/Components/Icseusd/Controls/EditableText.vue"
 
 const props = defineProps({
     configName: String,

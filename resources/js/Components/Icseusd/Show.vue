@@ -1,6 +1,6 @@
 <script setup>
 import IcseusdControl from './Controls/IcseusdControl.vue';
-import LocalTranslation from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/LocalTranslation.vue";
+import LocalTranslation from "@IceDatabaseTranslationLocally/Components/LocalTranslation/LocalTranslation.vue";
 
 const props = defineProps({
     config: Object,

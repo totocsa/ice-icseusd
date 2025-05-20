@@ -1,9 +1,9 @@
 <script setup>
 import { XMarkIcon } from '@heroicons/vue/20/solid'
-import { useModalLiFoStore } from '@IceModalLiFo/Components/totocsa/ModalLiFo/ModalLiFoStore.js'
-import Modal from "@IceModalLiFo/Components/totocsa/ModalLiFo/Modal.vue"
-import CountItemsAndTranslationIcon from "@IceModalLiFo/Components/totocsa/ModalLiFo/CountItemsAndTranslationIcon.vue"
-import LocalTranslation from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/LocalTranslation.vue"
+import { useModalLiFoStore } from '@IceModalLiFo/Components/ModalLiFo/ModalLiFoStore.js'
+import Modal from "@IceModalLiFo/Components/ModalLiFo/Modal.vue"
+import CountItemsAndTranslationIcon from "@IceModalLiFo/Components/ModalLiFo/CountItemsAndTranslationIcon.vue"
+import LocalTranslation from "@IceDatabaseTranslationLocally/Components/LocalTranslation/LocalTranslation.vue"
 
 const props = defineProps({
     itemId: String,

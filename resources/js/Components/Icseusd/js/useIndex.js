@@ -1,7 +1,7 @@
 import { ref } from "vue"
 import { router, usePage } from "@inertiajs/vue3"
 
-import { t } from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/translation.js"
+import { t } from "@IceDatabaseTranslationLocally/Components/LocalTranslation/translation.js"
 
 export function useIndex(props) {
     const page = usePage()

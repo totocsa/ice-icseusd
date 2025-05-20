@@ -1,9 +1,9 @@
 <script setup>
 import { Link } from '@inertiajs/vue3'
-import { t } from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/translation.js"
+import { t } from "@IceDatabaseTranslationLocally/Components/LocalTranslation/translation.js"
 import IconAsync from '@/Components/bealejd/blog-async-icons/src/components/Icons/IconAsync.vue'
-import IcseusdControl from '@IceIcseusd/Components/totocsa/Icseusd/Controls/IcseusdControl.vue'
-import LocalTranslation from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/LocalTranslation.vue"
+import IcseusdControl from '@IceIcseusd/Components/Icseusd/Controls/IcseusdControl.vue'
+import LocalTranslation from "@IceDatabaseTranslationLocally/Components/LocalTranslation/LocalTranslation.vue"
 
 const props = defineProps({
     userRoles: Object,
