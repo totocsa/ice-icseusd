@@ -2,7 +2,7 @@
 import { Link, usePage } from '@inertiajs/vue3';
 import { useDestroyItemForm } from "@IceIcseusd/Components/totocsa/Icseusd/js/useDestroyItemForm.js"
 import ScrollableNav from '@IceIcseusd/Components/totocsa/ScrollableNav.vue';
-import LocalTranslation from '@/Components/totocsa/LocalTranslation/LocalTranslation.vue';
+import LocalTranslation from '@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/LocalTranslation.vue';
 
 const page = usePage();
 

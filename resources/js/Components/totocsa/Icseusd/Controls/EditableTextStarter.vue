@@ -1,7 +1,7 @@
 <script setup>
 import { route } from '/vendor/tightenco/ziggy/src/js'
 import IcseusdItemText from './ItemText.vue'
-import LocalTranslation from "@/Components/totocsa/LocalTranslation/LocalTranslation.vue"
+import LocalTranslation from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/LocalTranslation.vue"
 
 const props = defineProps({
     clickHandler: Function,

@@ -1,7 +1,7 @@
 <script setup>
 import { useFilters } from "./js/useFilters.js";
 import IcseusdControl from './Controls/IcseusdControl.vue';
-import LocalTranslation from "@/Components/totocsa/LocalTranslation/LocalTranslation.vue";
+import LocalTranslation from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/LocalTranslation.vue";
 
 const props = defineProps({
     config: Object,
