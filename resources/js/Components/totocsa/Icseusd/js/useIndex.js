@@ -1,7 +1,7 @@
 import { ref } from "vue"
 import { router, usePage } from "@inertiajs/vue3"
 
-import { t } from "@/Components/totocsa/LocalTranslation/translation.js"
+import { t } from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/translation.js"
 
 export function useIndex(props) {
     const page = usePage()
@@ -18,9 +18,9 @@ export function useIndex(props) {
     const fetchIndex = () => {
         const url = props?.configName
             ? route("icseusd.generics.index", {
-                  configName: props.configName,
-                  components: { index: page.component },
-              })
+                configName: props.configName,
+                components: { index: page.component },
+            })
             : route(`${props.routePrefix}${props.routeController}.index`)
 
         try {
