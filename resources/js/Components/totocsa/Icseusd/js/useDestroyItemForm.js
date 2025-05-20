@@ -1,6 +1,6 @@
 import { markRaw, ref } from "vue"
 import { router } from "@inertiajs/vue3"
-import { useModalLiFoStore } from "@/Components/totocsa/ModalLiFo/ModalLiFoStore.js"
+import { useModalLiFoStore } from "@IceModalLiFo/Components/totocsa/ModalLiFo/ModalLiFoStore.js"
 import DestroyItemForm from "@IceIcseusd/Components/totocsa/Icseusd/ActionMenu/DestroyItemForm.vue"
 
 export function useDestroyItemForm(props) {
