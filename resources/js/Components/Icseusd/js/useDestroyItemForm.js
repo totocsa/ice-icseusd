@@ -16,7 +16,7 @@ export function useDestroyItemForm(props) {
     }
 
     const modalLiFoAddToStack = (destroyItem, orders = undefined, confirmSubmit = undefined, confirmParams = {}) => {
-        const itemId = location.protocol === 'https:' ? crypto.randomUUID() : 'x' + Date.now()
+        const itemId = location.protocol === 'https:' ? crypto.randomUUID() : 'x' + Date.now() + parseInt(Math.random() * (9999999 - 1000000) + 1000000)
         useModalLiFoStore().addToStack(itemId, markRaw(DestroyItemForm), {
             itemId: itemId,
             title: {
