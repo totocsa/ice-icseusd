@@ -14,6 +14,9 @@ use Totocsa\TailwindcssHelper\TailwindcssHelper;
 
 class IcseusdController extends Controller
 {
+    public $dbDriver;
+    public $ilikeORLike;
+
     public $vuePageDir = '';
     public $configName = '';
     public $modelClassName = '';
@@ -23,7 +26,6 @@ class IcseusdController extends Controller
     public $routeController;
     public $routeParameterName;
 
-    public $conditions = [];
     public $paging = [
         'page' => 1,
         'per_page' => 10,
@@ -117,6 +119,9 @@ class IcseusdController extends Controller
         if (method_exists(parent::class, '__construct')) {
             parent::__construct();
         }
+
+        $this->dbDriver = DB::getDriverName();
+        $this->ilikeORLike = $this->dbDriver === 'pgsql' ? 'ilike' : 'like';
 
         $this->keyName = (new $this->modelClassName())->getKeyName();
         $this->setRouteController($routeControllerPrefix);
@@ -374,6 +379,11 @@ class IcseusdController extends Controller
         })->toArray();
 
         return $controllerRoutes;
+    }
+
+    public function conditions()
+    {
+        return   [];
     }
 
     public function fields()

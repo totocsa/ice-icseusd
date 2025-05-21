@@ -38,12 +38,12 @@ return [
     ],
     'conditions' => [
         'users-name' => [
-            'operator' => 'ilike',
+            'operator' => $this->ilikeORLike,
             'value' => "%{{users-name}}%",
             'boolean' => 'and',
         ],
         'users-email' => [
-            'operator' => 'ilike',
+            'operator' => $this->ilikeORLike,
             'value' => "%{{users-email}}%",
             'boolean' => 'and',
         ],
@@ -102,9 +102,9 @@ return [
                 "$t0.email as $t0-email",
             ]);
 
-        foreach ($caller->conditions as $k => $v) {
+        foreach ($caller->conditions() as $k => $v) {
             if ($caller->filters[$k] > 0) {
-                $cond = $caller->conditions[$k];
+                $cond = $caller->conditions()[$k];
                 $value = strtr($cond['value'], $caller->replaceFieldToValue());
                 $query->where(str_replace('-', '.', $k), $cond['operator'], $value, $cond['boolean']);
             }
